@@ -26,27 +26,35 @@ jobs:
         with:
           channel: ${{ matrix.flutter }}
 
-      - name: Get dependencies
+      - name: Clean build files for rocket_chat_embeddedchat_component
+        run: flutter clean
+        working-directory: packages/rocket_chat_embeddedchat_component
+
+      - name: Clean build files for rocket_chat_api
+        run: flutter clean
+        working-directory: packages/rocket_chat_api
+
+      - name: Get dependencies for rocket_chat_embeddedchat_component
         run: flutter pub get
         working-directory: packages/rocket_chat_embeddedchat_component
 
-      - name: Get dependencies
+      - name: Get dependencies for rocket_chat_api
         run: flutter pub get
         working-directory: packages/rocket_chat_api
 
-      - name: Run tests
+      - name: Run tests for rocket_chat_embeddedchat_component
         run: flutter test
         working-directory: packages/rocket_chat_embeddedchat_component
 
-      - name: Run tests
+      - name: Run tests for rocket_chat_api
         run: flutter test
         working-directory: packages/rocket_chat_api
 
-      - name: Analyze code
+      - name: Analyze code for rocket_chat_embeddedchat_component
         run: flutter analyze
         working-directory: packages/rocket_chat_embeddedchat_component
 
-      - name: Analyze code
+      - name: Analyze code for rocket_chat_api
         run: flutter analyze
         working-directory: packages/rocket_chat_api
 
