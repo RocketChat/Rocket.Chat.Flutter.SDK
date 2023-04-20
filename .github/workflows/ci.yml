@@ -36,11 +36,11 @@ jobs:
 
       - name: Run tests
         run: flutter test
-        working-directory: packages/rocket_chat_embeddedchat_component/test
+        working-directory: packages/rocket_chat_embeddedchat_component
 
       - name: Run tests
         run: flutter test
-        working-directory: packages/rocket_chat_api/test
+        working-directory: packages/rocket_chat_api
 
       - name: Analyze code
         run: flutter analyze
