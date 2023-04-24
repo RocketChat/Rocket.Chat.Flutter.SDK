@@ -26,45 +26,20 @@ jobs:
         with:
           channel: ${{ matrix.flutter }}
 
-      - name: Get dependencies for rocket_chat_embeddedchat_component
-        run: flutter pub get
-        working-directory: packages/rocket_chat_embeddedchat_component
+      - name: Install Melos
+        run: flutter pub global activate melos
 
-      - name: Get dependencies for rocket_chat_embeddedchat_component sample_app
-        run: flutter pub get
-        working-directory: packages/rocket_chat_embeddedchat_component/sample_app
+      - name: Bootstrap packages with Melos
+        run: melos bootstrap
 
-      - name: Get dependencies for rocket_chat_api sample_app
-        run: flutter pub get
-        working-directory: packages/rocket_chat_api/sample_app
+      - name: Run tests with Melos
+        run: melos run test
 
-      - name: Get dependencies for rocket_chat_api
-        run: flutter pub get
-        working-directory: packages/rocket_chat_api
+      - name: Analyze code with Melos
+        run: melos run analyze
 
-      - name: Run tests for rocket_chat_embeddedchat_component
-        run: flutter test
-        working-directory: packages/rocket_chat_embeddedchat_component
-
-      - name: Run tests for rocket_chat_api
-        run: flutter test
-        working-directory: packages/rocket_chat_api
-
-      - name: Analyze code for rocket_chat_embeddedchat_component
-        run: flutter analyze
-        working-directory: packages/rocket_chat_embeddedchat_component
-
-      - name: Analyze code for rocket_chat_api
-        run: flutter analyze
-        working-directory: packages/rocket_chat_api
-
-      - name: Compile rocket_chat_embeddedchat_component
-        run: flutter pub publish --dry-run
-        working-directory: packages/rocket_chat_embeddedchat_component
-
-      - name: Compile rocket_chat_api
-        run: flutter pub publish --dry-run
-        working-directory: packages/rocket_chat_api
+      - name: Compile and dry-run publish with Melos
+        run: melos run publish
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v2

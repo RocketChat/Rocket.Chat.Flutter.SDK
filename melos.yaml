@@ -1,0 +1,12 @@
+name: rocket_chat_flutter_sdk
+
+packages:
+  - packages/**/pubspec.yaml
+
+scripts:
+  test:
+    run: melos exec -- flutter test
+  analyze:
+    run: melos exec -- flutter analyze
+  publish:
+    run: melos exec -- flutter pub publish --dry-run
