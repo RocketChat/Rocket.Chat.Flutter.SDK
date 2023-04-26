@@ -1,0 +1,48 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        flutter: [stable]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: ${{ matrix.flutter }}
+
+      - name: Install Melos
+        run: flutter pub global activate melos
+
+      - name: Bootstrap packages with Melos
+        run: melos bootstrap
+
+      - name: Run tests with Melos
+        run: melos run test
+
+      - name: Analyze code with Melos
+        run: melos run analyze
+
+      - name: Compile and dry-run publish with Melos
+        run: melos run publish
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: packages/*/artifacts
