@@ -41,6 +41,22 @@ jobs:
       - name: Compile and dry-run publish with Melos
         run: melos run publish
 
+      - name: Get dependencies for rocket_chat_embeddedchat_component sample_app
+        run: flutter pub get
+        working-directory: packages/rocket_chat_embeddedchat_component/sample_app
+
+      - name: Build artifact for rocket_chat_embeddedchat_component sample_app
+        run: flutter build apk --debug
+        working-directory: packages/rocket_chat_embeddedchat_component/sample_app
+
+      - name: Get dependencies for rocket_chat_api sample_app
+        run: flutter pub get
+        working-directory: packages/rocket_chat_api/sample_app
+
+      - name: Build artifact for rocket_chat_api sample_app
+        run: flutter build apk --debug
+        working-directory: packages/rocket_chat_api/sample_app
+
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
