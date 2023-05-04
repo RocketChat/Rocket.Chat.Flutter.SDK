@@ -8,7 +8,9 @@ This document provides guidelines and instructions to make the contribution proc
 
 - [Code of Conduct](#code-of-conduct)
 - [Getting Started](#getting-started)
-- [Setting Up the Development Environment](#setting-up-the-development-environemt)
+- [Setting Up the Development Environment](#setting-up-the-development-environment)
+- [Building the Project](#building-the-project)
+- [GitHub Actions CI](#github-actions-ci)
 - [Project Structure](#project-structure)
 - [Bug Reports](#bug-reports)
 - [Feature Requests](#feature-requests)
@@ -33,29 +35,13 @@ By participating in this project, you agree to abide by the [Rocket.Chat Code of
 
 To set up the development environment for the Rocket.Chat Flutter SDK, follow these steps:
 
-1. Clone the repository:
+**Local Setup**
+
+Clone the repository:
 
    ```sh
    git clone https://github.com/your-username/Rocket_Chat_FlutterSDK.git
    ```
-
-2. Navigate to the project directory:
-
-   ```sh
-   cd rocket_chat_api
-   ```
-   or
-   ```sh
-   cd rocket_chat_embeddedchat_component
-   ```
-
-3. Install the required dependencies:
-
-   ```sh
-   flutter pub get
-   ```
-
-### Local Setup
 
 Congratulations. 🎉.  You've successfully cloned our repository, and you are ready to make your first contribution. Before you can start making code changes, there are a few things to configure. 
 
@@ -75,11 +61,79 @@ melos bootstrap
 
 Bootstrap will automatically fetch and link dependencies for all packages in the repository. It is the Melos equivalent of running `flutter pub get`.
 
-Bonus Tip: You can define and run custom scripts using Melos, We use custom scripts for all sorts of actions like testing, lints, and more. 
+You're all set, Happy coding!
 
-To run a script, use `melos run <script name>`.
+## Building the Project
 
-Happy coding!
+When building a package, you will not receive a standalone output file like an APK or an app bundle, as the package is meant to be used as a dependency in other Flutter projects. **Ensure that the package is built without any errors and can be easily imported and used in other projects** using following command:
+
+1. Install the required dependencies:
+
+   ```bash
+   melos bootstrap
+   ```
+
+2. Run test with melos, hit:
+
+   ```bash
+   melos run test
+   ```
+
+3. Analyze code with melos, hit:
+
+   ```bash
+   melos run analyze
+   ```
+
+4. Compile and dry-run publish with Melos, hit:
+
+   ```bash
+   melos run publish
+   ```
+
+### Build Artifacts
+
+For the sample apps included in each package, you can build them as you would with any other Flutter application, and you'll get an output file (e.g., APK for Android) after the build process is completed.
+
+To build a sample package: 
+
+1. Navigate to the app's root directory
+
+   ```sh
+   cd rocket_chat_api/sample_app
+   ```
+   or
+   ```sh
+   cd rocket_chat_embeddedchat_component/sample_app
+   ```
+2. Get all dependencies
+
+   ```bash
+   flutter pub get
+   ```
+
+3. Run:
+   ```bash
+   flutter build <platform>
+   ```
+
+Replace `<platform>` with the platform you are targeting (e.g., `apk`, `ios`, `web`).
+After building, the artifacts for each sample apps will be located in the following directories:
+
+- `rocket_chat_embeddedchat_component`: `packages/rocket_chat_embeddedchat_component/sample_app/build/outputs`
+- `rocket_chat_api`: `packages/rocket_chat_api/sample_app/build/outputs`
+
+### Error Logs
+
+If the build process encounters any errors, check the terminal or debug console in your development environment (e.g., VSCode) for error messages and stack traces.
+
+## GitHub Actions CI
+
+The project is integrated with GitHub Actions CI, which automatically builds and tests the packages on every push and pull request. The CI configuration can be found in `.github/workflows/ci.yml`.
+
+### CI Logs
+
+If the CI process fails, logs can be accessed from the "Actions" tab in the GitHub repository. Click on the specific run, and then select the failed job to view the logs.
 
 ## Project Structure
 
