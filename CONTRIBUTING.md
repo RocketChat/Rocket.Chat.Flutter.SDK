@@ -17,6 +17,7 @@ This document provides guidelines and instructions to make the contribution proc
 - [Pull Requests](#pull-requests)
 - [Coding Guidelines](#coding-guidelines)
 - [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
 - [Community](#community)
 
 ## Code of Conduct
@@ -205,6 +206,19 @@ Before submitting a pull request, please make sure that your changes adhere to t
 - Make sure all tests pass before submitting a pull request.
 - Update or add new tests if you make changes to existing code or implement new features.
 - Follow the project's testing best practices and conventions.
+
+## Troubleshooting
+
+If you encounter any issues during the build process or while using the package, follow these steps to troubleshoot:
+
+1. **Check the build logs**: Make sure to carefully examine the build logs in the terminal or your IDE's debug console for any error messages or warnings.
+2. **Verify dependencies**: Double-check your `pubspec.yaml` file to ensure that all dependencies are listed and their versions are compatible.
+3. **Flutter doctor**: Run `flutter doctor` to identify any potential issues with your Flutter installation or development environment.
+4. **Clean and rebuild**: Sometimes, issues can be resolved by simply cleaning your project's build cache and rebuilding. Run `flutter clean` followed by build instruction to perform a clean rebuild of your project.
+5. **Search for known issues**: Check the package's GitHub repository for any reported issues or ongoing discussions related to your problem.
+6. **Ask for help**: If you're still having trouble, don't hesitate to reach out to the Rocket.Chat community or create a new issue on the GitHub repository.
+
+For more specific guidance on troubleshooting, please provide detailed information about the issue you're facing, including error messages, logs, and any steps you've already taken to resolve the problem.
 
 ## Community
 
