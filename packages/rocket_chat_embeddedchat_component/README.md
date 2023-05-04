@@ -10,7 +10,6 @@ This package provides a complete embedded chat UI component for Rocket.Chat, mak
 - [Compiling the Package](#compiling-the-package)
 - [Example App](#example-app)
 - [Contributing](#contributing)
-- [Troubleshooting](#troubleshooting)
 
 ## Features
 
