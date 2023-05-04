@@ -1,24 +1,30 @@
 # Rocket.Chat Flutter SDK
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-rounded)](https://github.com/invertase/melos)
 
 This repository contains the `Rocket.Chat Flutter SDK`, which includes the `rocket_chat_embeddedchat_component` and `rocket_chat_api` packages. These packages make it easier for developers to integrate and interact with Rocket.Chat in their Flutter applications.
 
 ## Table of Contents
 
-- [Features](#features)
+- [Packages](#packages)
 - [Usage](#usage)
 - [Structure](#structure)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Features
 
-- **[`rocket_chat_embeddedchat_component`](https://github.com/RocketChat/Rocket.Chat.Flutter.SDK/tree/main/packages/rocket_chat_embeddedchat_component)**: A Flutter package that provides a complete embedded chat UI component for Rocket.Chat.
-- **[`rocket_chat_api`](https://github.com/RocketChat/Rocket.Chat.Flutter.SDK/tree/main/packages/rocket_chat_api)**: A Flutter package that provides a comprehensive wrapper for the Rocket.Chat REST API.
-- Sample apps demonstrating the usage of each package.
-- Comprehensive unit, integration, and widget tests.
+## Packages 
+We provide a variety of packages depending on the level of customization you want to achieve.
 
+### [`rocket_chat_embeddedchat_component`](https://github.com/RocketChat/Rocket.Chat.Flutter.SDK/tree/main/packages/rocket_chat_embeddedchat_component)
+A Flutter package that provides a complete embedded chat UI component for Rocket.Chat.
+
+### [`rocket_chat_api`](https://github.com/RocketChat/Rocket.Chat.Flutter.SDK/tree/main/packages/rocket_chat_api)
+A Flutter package that provides a comprehensive wrapper for the Rocket.Chat REST API.
+
+### Sample Apps
+Every package folder includes a fully functional sample app with setup instructions.
 
 ## Usage
 
